@@ -52,8 +52,7 @@ while True:
             if patient["phone"] == phone:
                 print("\nAppointment Found")
                 print(patient)
-
-                found True
+                found = True
                 break
         if not found:
             print("Appintment Not Found")    
@@ -82,8 +81,10 @@ while True:
 
         for patient in appointments:
             if patient["phone"] == phone:
-                appointments.remove(patient)
-                print("Appointment Deleted")
+                confirm = input("Are you sure?(y/n)")
+                if confirm == "y" or "Y":
+                    appointments.remove(patient)
+                    print("Appointment Deleted")
 
                 found = True
                 break
@@ -94,4 +95,4 @@ while True:
         print("Thank You!")
         break
     else:
-        print("Invalid Choice")     
+        print("Invalid Choice")  
