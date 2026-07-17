@@ -33,3 +33,40 @@ def view_appointments():
         print("Treatment :", patient["treatment"])
         print("Doctor :", patient["doctor"])
         print("Status :", patient["status"])
+
+
+def search_appointment():
+
+    phone = input("Phone No: ")
+    found = False
+
+    for patient in appointments:
+
+        if patient["phone"] == phone:
+            print("\nPatient Found!")
+            print(patient)
+        found = True
+        break
+    if not found:
+
+        print("Appointment not Found")    
+
+
+
+def delete_appointment():
+    phone = input("Enter Phone Number: ")
+
+    found = False
+
+    for patient in appointments:
+        if patient["phone"] == phone:
+            confirm = input("Are you sure?(y/n)")
+            if confirm == "y" or "Y":
+                appointments.remove(patient)
+                print("Appointment Deleted")
+
+        found = True
+        break
+    if not found:
+        print("Appointment Not Found")    
+
